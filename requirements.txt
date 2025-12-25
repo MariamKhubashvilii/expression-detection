@@ -8,4 +8,5 @@
 
 Install the required packages with:
 
+```bash
 pip install opencv-python dlib numpy pillow
