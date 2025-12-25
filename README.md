@@ -1,6 +1,7 @@
 # Real-Time Facial Expression Detection (Heuristic, dlib)
 
-This project is a real-time facial expression detector built with OpenCV and dlib. It uses facial landmarks and simple geometric heuristics (not machine learning) to classify expressions and react to them with spoken comments.
+This project is a real-time facial expression detector built with OpenCV and dlib.
+It uses facial landmarks and simple geometric heuristics (not machine learning) to classify expressions and react to them with spoken comments.
 
 The goal is to explore how far you can go with lightweight, interpretable rules instead of heavy emotion-classification models, while keeping everything fast and explainable.
 
@@ -14,7 +15,17 @@ Extracts 68 facial landmarks per face
 
 Computes simple geometric features (mouth, eyes, brows)
 
-Classifies expressions into: happy, sad, angry, surprised, neutral
+Classifies expressions into:
+
+happy
+
+sad
+
+angry
+
+surprised
+
+neutral
 
 Smooths predictions across frames to reduce flicker
 
@@ -57,14 +68,11 @@ macOS (for the built-in say command)
 Webcam
 
 Install Dependencies
-
-Install required Python packages:
-
 pip install opencv-python dlib numpy pillow
 
 Notes on dlib Installation
 
-dlib may require CMake and a C++ compiler
+dlib may require CMake and a C++ compiler.
 
 On macOS, installing CMake via Homebrew often helps if pip install dlib fails:
 
@@ -82,9 +90,7 @@ Due to its size, this file is not included in the repository.
 How to Set It Up
 
 Download the model from:
-
 http://dlib.net/files/shape_predictor_68_face_landmarks.dat.bz2
-
 
 Extract the .dat file
 
@@ -103,11 +109,11 @@ Open and run the notebook:
 
 Expressions.ipynb
 
-Notes
+Performance Notes
 
-Running inside Jupyter may reduce FPS due to output rendering
+Running inside Jupyter may reduce FPS due to output rendering.
 
-For best performance, this logic can be moved into a standalone script using:
+For best performance, move this logic into a standalone script using:
 
 cv2.imshow("frame", frame)
 
@@ -125,5 +131,7 @@ Expressions are simplified and non-clinical
 No face tracking between frames
 
 Speech output is macOS-only
+
+Disclaimer
 
 This project is intended as an exploratory and educational prototype, not a production emotion-recognition system.
