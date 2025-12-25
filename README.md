@@ -60,3 +60,86 @@ Many emotion detection demos rely on black-box models that are hard to interpret
 
 ```bash
 pip install opencv-python dlib numpy pillow
+
+
+# dlib Installation Notes
+
+`dlib` may require **CMake** and a **C++ compiler**.
+
+On macOS, installing CMake via Homebrew often helps if `pip install dlib` fails:
+
+```bash
+brew install cmake
+```
+
+---
+
+## Required Model File (Not Included)
+
+This project requires a pretrained dlib facial landmark model:
+
+```text
+shape_predictor_68_face_landmarks.dat
+```
+
+Due to its size, this file is **not included** in the repository.
+
+---
+
+## How to Set It Up
+
+1. Download the model from:
+   ```
+   http://dlib.net/files/shape_predictor_68_face_landmarks.dat.bz2
+   ```
+
+2. Extract the `.dat` file.
+
+3. Create a folder called `models` in the project root (if it does not exist).
+
+4. Place the file at:
+   ```text
+   models/shape_predictor_68_face_landmarks.dat
+   ```
+
+The code checks for this file at startup and exits early with a clear error message if it is missing.
+
+---
+
+## Running the Project
+
+Open and run the notebook:
+
+```text
+Expressions.ipynb
+```
+
+---
+
+## Performance Notes
+
+- Running inside Jupyter may reduce FPS due to output rendering.
+- For best performance, move this logic into a standalone script and use:
+
+```python
+cv2.imshow("frame", frame)
+```
+
+instead of notebook display.
+
+---
+
+## Limitations
+
+- Thresholds are calibrated to a single face and camera
+- Lighting conditions affect results
+- Expressions are simplified and non-clinical
+- No face tracking between frames
+- Speech output is macOS-only
+
+---
+
+## Disclaimer
+
+This project is intended as an exploratory and educational prototype,  
+not a production emotion-recognition system.
